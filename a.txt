@@ -1,0 +1,30 @@
+document.addEventListener('DOMContentLoaded', function () {
+      let qtdd = 1;  
+      const valorInicial = parseFloat(document.getElementById('carPreco').textContent.trim()); 
+      const quantidade = document.getElementById('Quantidade');
+      const subtotal = document.getElementById('SubTotal');
+      cupom = 'ALUNO10';
+      
+      
+      function atualizar() {
+          const valorSubtotal = (valorInicial * qtdd).toFixed(2); 
+          subtotal.textContent = valorSubtotal;
+      }
+
+      atualizar();
+
+      document.getElementById('menos').addEventListener('click', function () {
+          if (qtdd > 1) {  
+              qtdd--;  
+          }
+          quantidade.textContent = qtdd;
+          atualizar(); 
+      });
+
+     
+      document.getElementById('mais').addEventListener('click', function () {
+          qtdd++;  
+          quantidade.textContent = qtdd;
+          atualizar(); 
+      });
+  });
